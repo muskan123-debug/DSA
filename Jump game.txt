@@ -1,0 +1,15 @@
+Given an positive integer N and a list of N integers A[]. Each element in the array denotes the maximum length of jump you can cover. Find out if you can make it to the last index if you start at the first index of the list.
+
+class Solution {
+    static int canReach(int[] A, int N) {
+        // code here
+        int i = 0,j = N-1;
+        for(i=N-1;i>=0;i--){
+            if(A[i]+i >=j){
+                j=i;
+            }
+        }
+        int res = (j==0)?1:0;
+        return res;
+    }
+}

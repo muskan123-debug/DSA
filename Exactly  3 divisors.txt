@@ -1,0 +1,32 @@
+class Solution
+{
+    
+    public int exactly3Divisors(int N)
+    {
+        //Your code here
+        // 1 to N loop
+        // divisors = 3
+        int count =1;
+        if(N<=3)
+        return 0;
+        
+        for(int i =3; i*i<=N;i++){
+            if(isPrime(i) && i*i<=N){
+                count++;
+            }
+        }
+        return count;
+    }
+    
+    boolean isPrime(int i){
+        if(i==2 || i== 3)
+        return true;
+        if(i%2==0 || i%3==0)
+        return false;
+        for(int j =5;j*j<=i;j++){
+            if(i%j == 0 || i%(j+2) == 0)
+            return false;
+        }
+        return true;
+    }
+}
